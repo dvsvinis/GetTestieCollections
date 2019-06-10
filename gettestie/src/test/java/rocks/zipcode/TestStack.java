@@ -38,4 +38,12 @@ public class TestStack {
         assertEquals(expected, stack.pop());
     }
 
+    @org.junit.Test
+    public void TestSearch() {
+        Stack<String> stack = new Stack<>();
+        stack.push("Hello ");
+        stack.push("Zip ");
+        stack.push("Code ");
+        assertEquals(-1, stack.search("Geek"));
+    }
 }
