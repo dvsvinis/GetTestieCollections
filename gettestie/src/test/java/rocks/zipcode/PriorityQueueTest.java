@@ -31,6 +31,7 @@ public class PriorityQueueTest {
         assertEquals(expected, student.size()); // false
     }
 
+    // orders its elements according to their natural ordering.
     @org.junit.Test
     public void pollTest() {
         PriorityQueue<String> student = new PriorityQueue<>();
