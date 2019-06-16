@@ -6,11 +6,9 @@ import static org.junit.Assert.*;
 import java.util.TreeMap;
 
 
-
 // uses a sorting criteria, sorted by keys
-//extends sorted map
-//get remove put clear
-
+//extends sorted map, navigable map
+//has all the methods that hashmap has, but sorted
 
 public class TreeMapTest {
 
@@ -74,6 +72,54 @@ public class TreeMapTest {
             assertEquals(expected, treeMap.higherKey(25));
             System.out.println((treeMap.higherKey(25)));
         }
+
+    //ceiling key higher than or equal to 25
+    @org.junit.Test
+    public void ceilingTest() {
+        TreeMap<Integer, String> treeMap = new TreeMap<Integer, String>();
+        treeMap.put(4, "Wile");
+        treeMap.put(10, "Suka");
+        treeMap.put(25, "Dave");
+        treeMap.put(50, "Chuck");
+        treeMap.put(5, "Annie");
+        Integer expected = 25;
+        assertEquals(expected, treeMap.ceilingKey(25));
+        System.out.println((treeMap.ceilingKey(25)));
+    }
+
+    //returns map in reverse order
+    @org.junit.Test
+    public void descendingTest() {
+        TreeMap<Integer, String> treeMap = new TreeMap<Integer, String>();
+        treeMap.put(4, "Wile");
+        treeMap.put(10, "Suka");
+        treeMap.put(25, "Dave");
+        treeMap.put(50, "Chuck");
+        treeMap.put(5, "Annie");
+        String expected = "{50=Chuck, 25=Dave, 10=Suka, 5=Annie, 4=Wile}";
+        String actual = "{50=Chuck, 25=Dave, 10=Suka, 5=Annie, 4=Wile}";
+        assertEquals(expected, actual);
+        System.out.println(treeMap);
+        System.out.println(treeMap.descendingMap());
+    }
+
+    //returns and removes 1st entry
+    //can also do pollLastEntry
+    @org.junit.Test
+    public void pollFirstEntryTest() {
+        TreeMap<Integer, String> treeMap = new TreeMap<Integer, String>();
+        treeMap.put(4, "Wile");
+        treeMap.put(10, "Suka");
+        treeMap.put(25, "Dave");
+        treeMap.put(50, "Chuck");
+        treeMap.put(5, "Annie");
+        String expected = "4=Wile";
+        String actual = "4=Wile";
+        assertEquals(expected, actual);
+        System.out.println(treeMap.pollFirstEntry());
+        System.out.println(treeMap); //WilE removed from list
+    }
+
 
 }
 
